@@ -9,7 +9,7 @@ Languages and tool used:
 
 <p> <a href="https://docs.microsoft.com/en-us/dotnet/csharp/" target="_blank">
 <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="csharp" width="40" height="40"/> </a>
-<a href="https://dotnet.microsoft.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/dotnet/dotnet-ar21.svg" alt="dotnet" width="60" height="60"/> </a>
+<a href="https://dotnet.microsoft.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/dotnet/dotnet-vertical.svg" alt="dotnet" width="60" height="60"/> </a>
 
 </p>
 
