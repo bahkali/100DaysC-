@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RegistrationAndLoginApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,13 @@ namespace RegistrationAndLoginApp.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult ProcessLogin(UserModel userModel)
+        {
+            if (userModel.UserName == "KaliBah" && userModel.Password == "123")
+            { return View("LoginSucess", userModel); }
+            else { return View("LoginFailure", userModel); }
         }
     }
 }
