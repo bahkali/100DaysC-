@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AtomicHabit
+namespace DesignWebApp
 {
     public class Startup
     {
@@ -24,14 +24,8 @@ namespace AtomicHabit
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddHttpClient();
-            //services.AddHttpClient(name: "Pixela", configureClient: client =>
-            //{
-               // client.BaseAddress = new Uri("https://pixe.la/");
-                // client.DefaultRequestHeaders.Add(name: "X-USER-TOKEN", value: "");
-           // });
-
         }
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
