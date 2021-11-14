@@ -10,9 +10,9 @@ namespace DesignWebApp.Controllers
     public class AppointmentController : Controller
     {
         static List<AppointmentModel> appointments = new List<AppointmentModel>();
-        public IActionResult Index(AppointmentModel appointment)
+        public IActionResult Index()
         {
-            return View(appointment);
+            return View(appointments);
         }
     
         public IActionResult create()
