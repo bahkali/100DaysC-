@@ -106,26 +106,98 @@ namespace CollectionsCSharp
             myStack.Push("five");
 
             // TODO: The Count property indicates how many elements are on the stack
-            Console.WriteLine("Item Count: {0}", myStack.Count);
+            //Console.WriteLine("Item Count: {0}", myStack.Count);
 
             // TODO: Stacks can be enumerated in place without changing the content
-            foreach(string s in myStack)
-            {
-                Console.WriteLine(s);
-            }
+            //foreach(string s in myStack){Console.WriteLine(s);}
 
             // TODO: The Peek function examines the current top element but does not remove it
             string top = myStack.Peek();
-            Console.WriteLine(top);
+            //Console.WriteLine(top);
 
             // TODO: The Pop function removes an element from the top
             item = myStack.Pop();
-            Console.WriteLine(item);
-            Console.WriteLine("Item count: {0}", myStack.Count);
+            //Console.WriteLine(item);
+            //Console.WriteLine("Item count: {0}", myStack.Count);
 
 
             // TODO: Search for an element using Contains
-            Console.WriteLine("Item found: {0}", myStack.Contains("five"));
+            //Console.WriteLine("Item found: {0}", myStack.Contains("five"));
+
+            //             Queue
+            //=========================================
+
+            // Create an empty Queue that holds strings
+            Queue<string> myQ = new Queue<string>();
+
+            // Add items to the end of the queue
+            myQ.Enqueue("one");
+            myQ.Enqueue("two");
+            myQ.Enqueue("three");
+            myQ.Enqueue("four");
+            myQ.Enqueue("five");
+
+            // use the count property to see how many items there are
+            //Console.WriteLine("Item Count: {0}", myQ.Count);
+
+            // Queues can be iterated without changing the structure
+            //foreach(string s in myQ) { Console.WriteLine(s); }
+
+            // peek at the front of the queue
+            string str = myQ.Peek();
+            //Console.WriteLine("The first item is {0}", str);
+
+            // remove items from the front of the queue
+            str = myQ.Dequeue();
+            //Console.WriteLine("Dequeued item is {0}", str);
+            //Console.WriteLine("Dequeued item is {0}", myQ.Dequeue());
+            //Console.WriteLine("Item Count: {0}", myQ.Count);
+            //foreach (string s in myQ) { Console.WriteLine(s); }
+
+            // see if the queue contains an item
+            //Console.WriteLine("Queue contains 'one' : {0}", myQ.Contains("one"));
+           // onsole.WriteLine("Queue contains 'four' : {0}", myQ.Contains("four"));
+
+            // Remove all the items
+            myQ.Clear();
+            //Console.WriteLine("Item count: {0}", myQ.Count);
+
+            //             Dictionaries
+            //=========================================
+
+            // Dictionaries map keys to values. Keys must be unique
+            Dictionary<string, string> fileTypes = new Dictionary<string, string>();
+
+            // add some keys and values to the dictionary
+            fileTypes.Add(".bmp", "Bitmap File");
+            fileTypes.Add(".txt", "Text File");
+            fileTypes.Add(".html", "HTML Document");
+            fileTypes.Add(".jpg", "JPEG Image");
+
+            // use the Count property to see how many items there are
+            Console.WriteLine("Count: {0}", fileTypes.Count);
+            //foreach (string s in fileTypes){ Console.WriteLine( fileTypes[s]);}
+
+            // Trying to add an existing key will throw an exception
+            // fileTypes.Add(".txt", "Just plain text");
+
+            // The TryAdd function makes it convenient to see if there's a duplicate
+            //bool added = fileTypes.TryAdd(".txt", "Just plain text");
+            //Console.WriteLine("Added: {0}", added);
+
+            // Dictionaries are also like associative arrays
+            Console.WriteLine("Key value: {0}", fileTypes[".html"]);
+            // This way, setting an existing key just overwrites the value
+            fileTypes[".html"] = "Web Page";
+            Console.WriteLine("key value: {0}", fileTypes[".html"]);
+
+            // See if the Dictionary contains an key or a value
+            Console.WriteLine("Contains key: {0}", fileTypes.ContainsKey(".bmp"));
+            Console.WriteLine("Contains value: {0}", fileTypes.ContainsValue("HTML Document"));
+
+            // Remove items
+            fileTypes.Remove(".bmp");
+            Console.WriteLine("Contains key: {0}", fileTypes.ContainsKey(".bmp"));
 
             Console.ReadKey();
         }
