@@ -10,21 +10,18 @@ namespace day3Practice
     {
         static void Main(string[] args)
         {
+            /*
             // Part 1 Odd or Even
             Console.WriteLine("1. Odd or Even exercise");
             Console.Write("Please enter a number to check if even or odd? ");
             int num = Convert.ToInt32(Console.ReadLine());
-            if (num % 2 == 0)
-            {
-                Console.WriteLine("This is an even number.");
-            }
-            else
-            {
-                Console.WriteLine("This is an odd number.");
-            }
+            if (num % 2 == 0) {Console.WriteLine("This is an even number.");}
+            else {Console.WriteLine("This is an odd number.");}
 
             Console.WriteLine("\n\n");
+            */
 
+            /*
             // Part 2 BMI calculator
             Console.WriteLine("2. BMI Calculator 2");
             Console.Write("Enter your height in m: ");
@@ -34,7 +31,7 @@ namespace day3Practice
 
             // Calculate BMI 
             double bmi = weight / Math.Pow(height, 2);
-            //Console.WriteLine("Your BMI is {0}", Math.Round(bmi));
+            Console.WriteLine("Your BMI is {0}", Math.Round(bmi));
             if (bmi < 18.5)
             {
                 Console.WriteLine($"Your BMI is {Math.Round(bmi)}, you are underweight.");
@@ -53,20 +50,17 @@ namespace day3Practice
             }
 
             Console.WriteLine("\n\n");
+            */
+            /*
             // Part 3 Leap Year
             Console.WriteLine("Leap Year");
             Console.Write("Enter an year to determine if it is a leap year: ");
             int year = Convert.ToInt32(Console.ReadLine());
 
-            if (year % 4 == 0 && year % 100 != 0 && year % 400 == 0) 
-            {
-                Console.WriteLine("The year {0} is a leap year.", year);
-            }
-            else
-            {
-                Console.WriteLine("The year {0} is not a leap year.", year);
-            }
-
+            if (year % 4 == 0 && year % 100 != 0 && year % 400 == 0) {Console.WriteLine("The year {0} is a leap year.", year);}
+            else {Console.WriteLine("The year {0} is not a leap year.", year);}
+            */
+            /*
             Console.WriteLine("\n\n");
             // Part 4 Pizza Order
             Console.WriteLine("Pizza Order");
@@ -90,34 +84,59 @@ namespace day3Practice
 
             int finalBill = 0;
 
-            if (size == "S")
-            {
-                finalBill += 15;
-            } 
-            else if (size == "M")
-            {
-                finalBill += 20;
-            }
-            else 
-            {
-                finalBill += 25;
-            }
+            if (size == "S"){finalBill += 15;} 
+            else if (size == "M"){finalBill += 20;}
+            else {finalBill += 25;}
             
-            if(addPepperoni == "Y" && size == "S")
-            {
-                finalBill += 2;
-            }else{
-                // for medium and large
-                finalBill += 3;
-            }
+            if(addPepperoni == "Y" && size == "S"){finalBill += 2;}
+            else{finalBill += 3;}
 
-            if (extraCheese == "Y")
-            {
-                finalBill += 1;
-            }
+            if (extraCheese == "Y"){finalBill += 1;}
 
             Console.WriteLine($"Your final bill is: ${finalBill}");
+            Console.WriteLine("\n\n");
+            */
 
+
+            // Part 5 Love Calculator
+            Console.WriteLine("Welcome to the Love Calculator");
+
+            Console.Write("What is your name? ");
+            string name1 = (Console.ReadLine()).ToLower();
+            Console.Write("What is their name? ");
+            string name2 = (Console.ReadLine()).ToLower();
+            int num1 = 0;
+            int num2 = 0;
+
+            foreach (char s in "true")
+            {
+                var total = name1.Count(f => (f == s)) + name2.Count(f => (f == s));
+                num1 +=  total;
+                Console.WriteLine($"{s.ToString().ToUpper()} occurs { total } time");
+
+            }
+            // Separate them
+            Console.WriteLine();
+            foreach (char s in "love")
+            {
+                var total = name1.Count(f => (f == s)) + name2.Count(f => (f == s));
+                num2 += total;
+                Console.WriteLine($"{s.ToString().ToUpper()} occurs { total} time");
+            }
+
+            int Score = (num1 * 10) + num2;
+            if (Score < 10 || Score > 90)
+            {
+                Console.WriteLine($"Your score is {Score}, you go together like coke and mentos.");
+            }
+            else if (Score >= 40 && Score <= 50)
+            {
+                Console.WriteLine($"Your score is {Score}, you are alright together");
+            }
+            else
+            {
+                Console.WriteLine($"Your score is {Score}");
+            }
 
             Console.ReadKey();
         }
