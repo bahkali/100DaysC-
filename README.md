@@ -1,7 +1,7 @@
 # 100 DAYS OF CODE - C# and .NET
 
 This is a challenge to practice and improve coding in C# and .NET, every day build or learn something new.
-Feel to contact me if you find any error or area that need improvement, like a good feedback
+Feel free to contact me if you find any error or area that need improvement, like a good feedback
 
 ## Libraries
 

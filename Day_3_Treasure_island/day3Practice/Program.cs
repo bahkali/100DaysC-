@@ -52,6 +52,72 @@ namespace day3Practice
                 Console.WriteLine($"Your BMI is {Math.Round(bmi)}, you are clinically obese.");
             }
 
+            Console.WriteLine("\n\n");
+            // Part 3 Leap Year
+            Console.WriteLine("Leap Year");
+            Console.Write("Enter an year to determine if it is a leap year: ");
+            int year = Convert.ToInt32(Console.ReadLine());
+
+            if (year % 4 == 0 && year % 100 != 0 && year % 400 == 0) 
+            {
+                Console.WriteLine("The year {0} is a leap year.", year);
+            }
+            else
+            {
+                Console.WriteLine("The year {0} is not a leap year.", year);
+            }
+
+            Console.WriteLine("\n\n");
+            // Part 4 Pizza Order
+            Console.WriteLine("Pizza Order");
+
+            Console.WriteLine("Welcome to C-sharp Pizza Deliveries!");
+
+            Console.WriteLine("Small Pizza: $15");
+            Console.WriteLine("Medium Pizza: $20");
+            Console.WriteLine("Large Pizza: $25");
+            Console.WriteLine("Pepperoni for Small Pizza: +$2");
+            Console.WriteLine("Pepperoni for Medium or Large Pizza: +$3");
+            Console.WriteLine("Extra cheese for any size pizza: + $1");
+            Console.WriteLine("\n\n");
+            // Get the size
+            Console.Write("What size pizza do you want? S, M, or L ");
+            string size = Console.ReadLine();
+            Console.Write("Do you want pepperoni? Y or N ");
+            string addPepperoni = Console.ReadLine();
+            Console.Write("Do you want extra cheese? Y or N ");
+            string extraCheese = Console.ReadLine();
+
+            int finalBill = 0;
+
+            if (size == "S")
+            {
+                finalBill += 15;
+            } 
+            else if (size == "M")
+            {
+                finalBill += 20;
+            }
+            else 
+            {
+                finalBill += 25;
+            }
+            
+            if(addPepperoni == "Y" && size == "S")
+            {
+                finalBill += 2;
+            }else{
+                // for medium and large
+                finalBill += 3;
+            }
+
+            if (extraCheese == "Y")
+            {
+                finalBill += 1;
+            }
+
+            Console.WriteLine($"Your final bill is: ${finalBill}");
+
 
             Console.ReadKey();
         }
