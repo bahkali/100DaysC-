@@ -39,6 +39,47 @@ ____/______/______/______/______/_____""=.o|o_.--""""___/______/______/______/__
             Console.WriteLine("Welcome to Treasure Island.");
             Console.WriteLine("Your mission is to find the treasure.");
 
+            Console.WriteLine("You're at a cross road. Where do you want to go? Type \"left\" or \"right\"");
+            string c1 = Console.ReadLine();
+            if(c1 == "left")
+            {
+                Console.WriteLine("You\'ve come to a lake. " +
+                    "There is an island in the middle of the lake.\n Type \"wait\" to wait for a boat." +
+                    " Type \"swim\" to swim across");
+                string c2 = Console.ReadLine();
+                if(c2 == "wait")
+                {
+                    Console.WriteLine("You arrive at the island unharmed." +
+                        "There is a house with 3 doors.One red, one yellow and one blue." +
+                        "\nWhich colour do you choose?");
+
+                    string c3 = Console.ReadLine();
+                    if (c3 == "blue")
+                    {
+                        Console.WriteLine("You enter a room of beasts. Game Over.");
+                    } else if (c3 == "red")
+                    {
+                        Console.WriteLine("It's a room full of fire. Game Over.");
+                    }
+                    else if (c3 == "yellow")
+                    {
+                        Console.WriteLine("You found the treasure! You Win!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("You chose a door that doesn't exist. Game Over.");
+                    }
+
+                }else
+                {
+                    Console.WriteLine("You get attacked by an angry trout. Game Over.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("You fell into a hole. Game Over.");
+            }
+
             Console.ReadKey();
         }
     }
