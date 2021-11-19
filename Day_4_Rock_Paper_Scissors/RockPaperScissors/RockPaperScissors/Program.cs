@@ -10,30 +10,79 @@ namespace RockPaperScissors
     {
         static void Main(string[] args)
         {
-            string inputPlayer, inputCPU;
-            int randomInt;
+            
+           
 
-            Console.Write("Choose between ROCK, PAPER and SCISSORS: ");
-            inputPlayer = Console.ReadLine();
-
+            var rock = @"
+                        _______
+                    ---'   ____)
+                          (_____)
+                          (_____)
+                          (____)
+                    ---.__(___)
+                    ";
+            var paper = @"
+                        _______
+                    ---'   ____)____
+                              ______)
+                              _______)
+                             _______)
+                    ---.__________)
+                    ";
+            var scissors = @"
+                        _______
+                    ---'   ____)____
+                              ______)
+                           __________)
+                          (____)
+                    ---.__(___)
+                    ";
+            string[] games = { rock, paper, scissors };
             Random rnd = new Random();
-            randomInt = rnd.Next(1, 4);
+            string str;
+            Console.WriteLine("Rock-Paper-Scissors Game:");
+            do {
+                Console.Write("Choose between 0 for ROCK, 1 for PAPER and 2 for SCISSORS: ");
 
-            switch (randomInt)
-            {
-                case 1:
-                    inputCPU = "ROCK";
-                    break;
-                case 2:
-                    inputCPU = "PAPER";
-                    break;
-                case 3:
-                    inputCPU = "SCISSORS";
-                    break;
-                default:
-                    Console.WriteLine("Invalid entry!");
-                    break;
-            }
+                int inputPlayer = Convert.ToInt32(Console.ReadLine());
+                if (inputPlayer >= 3 || inputPlayer < 0)
+                {
+                    Console.WriteLine("You type an invalid number.");
+                }
+                else
+                {
+                    Console.WriteLine(games[inputPlayer]);
+                    // Computer generated choose
+                    int computerChoose = rnd.Next(0, 3);
+                    Console.WriteLine($"Computer chose {computerChoose}");
+                    Console.WriteLine(games[computerChoose]);
+
+
+                    if (inputPlayer == 0 && computerChoose == 2)
+                    {
+                        Console.WriteLine("You win.!");
+                    }
+                    else if (computerChoose == 0 && inputPlayer == 2)
+                    {
+                        Console.WriteLine("You lose");
+                    }
+                    else if (computerChoose > inputPlayer)
+                    {
+                        Console.WriteLine("You lose");
+                    }
+                    else if (computerChoose < inputPlayer)
+                    {
+                        Console.WriteLine("You win");
+                    }
+                    else if (computerChoose == inputPlayer)
+                    {
+                        Console.WriteLine("It's a draw");
+                    }
+                }
+                Console.Write("Type exit to stop the game or enter to continue: ");
+                str = Console.ReadLine().ToLower();
+            } while (str != "exit");
+
         }
     }
 }
