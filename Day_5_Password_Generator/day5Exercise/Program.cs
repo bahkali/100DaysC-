@@ -54,15 +54,16 @@ namespace day5Exercise
             */
 
             // Exercise 3 - Adding Even Numbers
-
-
+            /*
+            Console.WriteLine(" Adding Even Numbers ");
+            Console.WriteLine("=====================");
             IEnumerable<int> num = Enumerable.Range(0, 100).Select(x => x + 1);
             //Array.ForEach(num, Console.WriteLine);
             int sum = 0;
             //List<int> evenNumber = new List<int>();
             foreach (int i in num)
             {
-                Console.Write(i + " ");
+                //Console.Write(i + " ");
                 if(i % 2 == 0)
                 {
                     //evenNumber.Add(i);
@@ -71,9 +72,28 @@ namespace day5Exercise
             }
             Console.WriteLine();
             Console.WriteLine($"The final total is {sum}");
-
+            */
             // Exercise 4 -  FizzBuzz Job
-
+            Console.WriteLine(" FizzBuzz Game ");
+            Console.WriteLine("===============");
+            IEnumerable<int> count100 = Enumerable.Range(0, 100).Select(x => x + 1);
+            foreach(int i in count100)
+            {
+                if (i % 3 == 0 && i % 5 == 0)
+                {
+                    Console.WriteLine("FizzBuzz");
+                }
+                else if( i % 3 == 0)
+                {
+                    Console.WriteLine("Fizz");
+                } else if ( i % 5 == 0)
+                {
+                    Console.WriteLine("Buzz");
+                }else
+                {
+                    Console.WriteLine(i);
+                }
+            }
             // End of Program
             Console.ReadKey();
         }
