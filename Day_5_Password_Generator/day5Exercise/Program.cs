@@ -29,6 +29,7 @@ namespace day5Exercise
             Console.WriteLine($"The average height is {average_heights}.");
             */
             // Exercise 2 - High Score
+            /*
             Console.WriteLine("   High Score ");
             Console.WriteLine("================");
             Console.Write("Input a list of student score separated by space: ");
@@ -50,8 +51,26 @@ namespace day5Exercise
                 }
             }
             Console.WriteLine($"The highest score in the class is: {maxNumber}");
+            */
+
             // Exercise 3 - Adding Even Numbers
 
+
+            IEnumerable<int> num = Enumerable.Range(0, 100).Select(x => x + 1);
+            //Array.ForEach(num, Console.WriteLine);
+            int sum = 0;
+            //List<int> evenNumber = new List<int>();
+            foreach (int i in num)
+            {
+                Console.Write(i + " ");
+                if(i % 2 == 0)
+                {
+                    //evenNumber.Add(i);
+                    sum = sum + i;
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine($"The final total is {sum}");
 
             // Exercise 4 -  FizzBuzz Job
 
