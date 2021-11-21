@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BoardLogic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,13 +11,15 @@ namespace ConsoleTicTacToe
     {
         static void Main(string[] args)
         {
+            /*
             char[,] board = new char[3, 3] 
             {
                 { '.', '.', '.'},
                 { '.', '.', '.'},
                 { '.', '.', '.'}
-            };
-            
+            };*/
+
+            Board game = new Board();
 
             Random rand = new Random();
             int ConputerTurn = -1;
@@ -24,43 +27,48 @@ namespace ConsoleTicTacToe
             int row = 0;
             int col = 0;
 
-            printBoard(board);
+            game.printGrid();
             
-            while (CheckForWinner(board) == '.')
+            while (game.CheckForWinner() == '.')
             {
                 // don't allow the human to choose an already occupied grid
-                while(userTrun == -1 || board[row, col] != '.')
+                while(userTrun == -1 || game.Grid[row, col] != '.')
                 {
                     Console.WriteLine("Please enter a number from 1 to 9");
                     userTrun = int.Parse(Console.ReadLine());
                     Console.WriteLine("You typed {0}", userTrun);
-                    selectBox(userTrun, out row, out col);
+                    game.selectBox(userTrun, out row, out col);
 
                 }
                 // add
-                board[row, col] = 'X';
+                game.Grid[row, col] = 'X';
+                // Check grid if full
+                if (game.isGridFull()) { break; }
 
                 // Don't allow the computer to pick an invalid number
-                while (ConputerTurn == -1 || board[row, col] != '.')
+                while (ConputerTurn == -1 || game.Grid[row, col] != '.')
                 {
                     //Computer Chose
                     ConputerTurn = rand.Next(9);
                     Console.WriteLine("Computer choose {0}", ConputerTurn);
-                    selectBox(ConputerTurn, out row, out col);
+                    game.selectBox(ConputerTurn, out row, out col);
                 }
                 
-                board[row, col] = 'O'; 
+                game.Grid[row, col] = 'O';
+                // Check grid if full
+                if (game.isGridFull()) { break; }
 
                 //Print the board
-                printBoard(board);
+                game.printGrid();
             }
 
             //Print the Winner
-            Console.WriteLine("{0} won the game.", CheckForWinner(board) == 'X'? "You":"Computer" );
+            Console.WriteLine("{0} won the game.", game.CheckForWinner() == 'X'? "You":"Computer" );
 
             Console.ReadKey();
         }
 
+        /*
         // Print the board in Grid
         static void printBoard(char[,] board)
         {
@@ -77,7 +85,6 @@ namespace ConsoleTicTacToe
                 Console.WriteLine();
             }
         }
-
         // Select the grid location with one input
         static void selectBox(int input ,out int row, out int col)
         {
@@ -133,7 +140,6 @@ namespace ConsoleTicTacToe
                 col = 0;
             }
         }
-
         private static char CheckForWinner(char[,] board)
         {
             //return . if nobody won, return the player number if they won.
@@ -188,5 +194,6 @@ namespace ConsoleTicTacToe
             }
             return '.';
         }
+        */
     }
 }
