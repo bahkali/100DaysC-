@@ -16,7 +16,7 @@ namespace CaesarCipher
         {
             
 
-            Console.WriteLine(" Type 'encode' to encrypt, type 'decode' to decrypt: ");
+            Console.Write(" Type 'encode' to encrypt, type 'decode' to decrypt: ");
             string direction = Console.ReadLine().ToLower();
 
             Console.Write(" Type your message: ");
@@ -25,46 +25,71 @@ namespace CaesarCipher
             Console.Write(" Type the shift number: ");
             int shift = Convert.ToInt32(Console.ReadLine());
 
-            if(direction == "encrypt") { encrypt(text, shift); }
-            else if (direction == "decode") { decode(text, shift); }
-            else { Console.WriteLine(" You didn't choose a direction."); }
+            //if(direction == "encrypt") { encrypt(text, shift); }
+            //else if (direction == "decode") { decode(text, shift); }
+            //else { Console.WriteLine(" You didn't choose a direction."); }
+
+            caesar(text, shift, direction);
 
             //End Program
             Console.Read();
         }
 
-        static void encrypt(string text, int shift) 
-        {
-            StringBuilder word = new StringBuilder();
-            foreach(char c in text)
-            {
-                for (int i = 0; i < alphabet.Length; i++)
-                {
-                    if(alphabet[i] == c)
-                    {
-                        word.Append(alphabet[i + shift]);
-                    }
-                }
-            }
-
-            Console.WriteLine(" The encoded text is {0}", word.ToString());
-        }
-
-        static void decode(string text, int shift)
+        static void caesar(string text, int shift, string direction)
         {
             StringBuilder word = new StringBuilder();
             foreach (char c in text)
             {
-                for (int i = 0; i < alphabet.Length; i++)
-                {
-                    if (alphabet[i] == c)
+                int i = Array.IndexOf(alphabet, c);
+                if (alphabet[i] == c)
+                { 
+                    if(direction == "decode")
                     {
                         word.Append(alphabet[i - shift]);
                     }
+                    else
+                    {
+                        word.Append(alphabet[i + shift]);
+                    }
+                        
                 }
+                
             }
 
-            Console.WriteLine(" The decoded text is {0}", word.ToString());
+            Console.WriteLine($" The {direction}d text is {word.ToString()}");
         }
+        //static void encrypt(string text, int shift) 
+        //{
+        //    StringBuilder word = new StringBuilder();
+        //    foreach(char c in text)
+        //    {
+        //        for (int i = 0; i < alphabet.Length; i++)
+        //        {
+        //            if(alphabet[i] == c)
+        //            {
+        //                word.Append(alphabet[i + shift]);
+        //            }
+        //        }
+        //    }
+
+        //    Console.WriteLine(" The encoded text is {0}", word.ToString());
+        //}
+
+        //static void decode(string text, int shift)
+        //{
+        //    StringBuilder word = new StringBuilder();
+        //    foreach (char c in text)
+        //    {
+        //        for (int i = 0; i < alphabet.Length; i++)
+        //        {
+        //            if (alphabet[i] == c)
+        //            {
+        //                word.Append(alphabet[i - shift]);
+        //            }
+        //        }
+        //    }
+
+        //    Console.WriteLine(" The decoded text is {0}", word.ToString());
+        //}
     }
 }
