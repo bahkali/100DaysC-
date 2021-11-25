@@ -16,17 +16,18 @@ namespace CaesarCipher
         {
             
 
-            Console.WriteLine("\tType 'encode' to encrypt, type 'decode' to decrypt: ");
+            Console.WriteLine(" Type 'encode' to encrypt, type 'decode' to decrypt: ");
             string direction = Console.ReadLine().ToLower();
 
-            Console.WriteLine("Type your message: ");
+            Console.Write(" Type your message: ");
             string text = Console.ReadLine().ToLower();
 
-            Console.Write("Type the shift number: ");
+            Console.Write(" Type the shift number: ");
             int shift = Convert.ToInt32(Console.ReadLine());
 
             if(direction == "encrypt") { encrypt(text, shift); }
-            else if (direction == "decode") { Console.WriteLine("Still working on it..."); }
+            else if (direction == "decode") { decode(text, shift); }
+            else { Console.WriteLine(" You didn't choose a direction."); }
 
             //End Program
             Console.Read();
@@ -46,7 +47,24 @@ namespace CaesarCipher
                 }
             }
 
-            Console.WriteLine("The encoded text is {0}", word.ToString());
+            Console.WriteLine(" The encoded text is {0}", word.ToString());
+        }
+
+        static void decode(string text, int shift)
+        {
+            StringBuilder word = new StringBuilder();
+            foreach (char c in text)
+            {
+                for (int i = 0; i < alphabet.Length; i++)
+                {
+                    if (alphabet[i] == c)
+                    {
+                        word.Append(alphabet[i - shift]);
+                    }
+                }
+            }
+
+            Console.WriteLine(" The decoded text is {0}", word.ToString());
         }
     }
 }
