@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using ContactApp.Models;
 using SendGrid;
 
-namespace ContactApp.Data.Services
+namespace ContactApp.Services
 {
     public interface IEmailService
     {

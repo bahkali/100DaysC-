@@ -1,4 +1,4 @@
-using ContactApp.Data.Services;
+using ContactApp.Services;
 using ContactApp.Models;
 using Microsoft.AspNetCore.Mvc;
 

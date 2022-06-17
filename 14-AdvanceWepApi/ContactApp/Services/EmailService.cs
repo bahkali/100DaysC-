@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 
-namespace ContactApp.Data.Services
+namespace ContactApp.Services
 {
     public class EmailService : IEmailService
     {
